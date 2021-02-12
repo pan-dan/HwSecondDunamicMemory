@@ -415,10 +415,10 @@ void insert_row(int**& arr, int& m, const int n, int value, int index)
 	}
 	delete[] arr;
 
-	/*for (int i = 0; i < m; i++)
+	for (int i = 0; i < n; i++)
 	{
 		buffer[index][i] = rand();
-	}*/
+	}
 	arr = buffer;
 	
 	/*arr[index] = new int[n] {};*/
@@ -476,10 +476,7 @@ void push_col_front(int**& arr, const int m, int& n, int value)
 void insert_col(int**& arr, const int m, int& n, int value, int index)
 {
 	if (index > m)return;
-
 	int** buffer = new int* [m] {};
-
-	
 	for (int i = 0; i < m; i++)
 	{
 		buffer[i] = new int[n + 1]{};
@@ -498,7 +495,7 @@ void insert_col(int**& arr, const int m, int& n, int value, int index)
 	}
 	delete[] arr;
 	
-	for (int i = 0; i < n+1; i++)
+	for (int i = 0; i < m; i++)
 	{
 		buffer[i][index] = value;
 	}
@@ -570,12 +567,8 @@ void pop_col_back(int**& arr, const int m, int& n)
 		}
 		delete[] arr[i];
 	}
-
 	delete[] arr;
 	arr = buffer;
-
-
-	
 	n--;
 }
 void pop_col_front(int**& arr, const int m, int& n)
